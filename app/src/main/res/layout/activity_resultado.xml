@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul"
+    android:padding="8dp">
+
+    <TableLayout
+        android:id="@+id/tableLayoutGabarito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:background="@color/branco_azul"
+        android:showDividers="middle"
+        android:padding="4dp"
+        android:layout_margin="8dp">
+
+        <TableRow
+            android:padding="4dp">
+
+            <TextView
+                android:text="Elemento"
+                android:layout_margin="8dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:text="Número Atômico"
+                android:layout_margin="8dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:text="Sua Tentativa"
+                android:layout_margin="8dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:text="Resultado"
+                android:layout_margin="8dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center" />
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>

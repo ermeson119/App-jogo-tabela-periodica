@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/azul">
+
+    <TextView
+        android:id="@+id/TextViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sele_o_de_elementos"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/TextViewNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nome_do_usu_rio"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/EditTextNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/digite_seu_nome"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/TextViewValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/digite_um_valor_de_1_a_7"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/EditTextValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/digite_um_n_mero_entre_1_e_7"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btnGerarSelecao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gerar_sele_o"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/black"
+        android:paddingVertical="12dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/TextViewItensSelecionados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/itens_selecionados"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@android:color/black" />
+
+    <ListView
+        android:id="@+id/ListViewItensSelecionados"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/black"
+        android:dividerHeight="1dp"
+        android:background="@color/azul_claro"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btnProximaTela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/proxima_tela"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/black"
+        android:paddingVertical="12dp"
+        android:textSize="16sp" />
+
+</LinearLayout>

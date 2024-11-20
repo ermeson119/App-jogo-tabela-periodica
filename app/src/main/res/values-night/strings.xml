@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lista_da_tabela_periodica">Lista da Tabela Periódica</string>
+    <string name="proxima_tela">Próxima Tela</string>
+    <string name="sele_o_de_elementos">Seleção de Elementos</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="digite_um_n_mero_entre_1_e_7">Digite um número entre 1 e 7</string>
+    <string name="itens_selecionados">Itens Selecionados:</string>
+    <string name="pontua_o_0">Pontuação: 0</string>
+    <string name="coracao">❤❤❤</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="informa_es_da_tabela_periodica">Informações da Tabela Periodica</string>
+    <string name="nome_do_elemento">Nome do Elemento:</string>
+    <string name="sigla">Sigla:</string>
+    <string name="massa_atomica">Massa Atomica</string>
+    <string name="elemento">Elemento</string>
+    <string name="op_o_1">Opção 1</string>
+    <string name="op_o_2">Opção 2</string>
+    <string name="op_o_3">Opção 3</string>
+    <string name="op_o_4">Opção 4</string>
+    <string name="siglaa">Sigla</string>
+</resources>
