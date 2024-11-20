@@ -59,6 +59,7 @@ public class EntradaUsuarioActivity extends AppCompatActivity  {
             }
 
             Intent intent = new Intent(EntradaUsuarioActivity.this, JogadasPerguntas.class);
+            intent.putExtra("nomeUsuario", editTextNomeUsuario.getText().toString().trim());
             intent.putExtra("elementos", listaSelecionada); // Passa a lista selecionada para a próxima tela
             startActivity(intent);
         });

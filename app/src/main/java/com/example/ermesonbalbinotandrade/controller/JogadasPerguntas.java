@@ -2,6 +2,7 @@ package com.example.ermesonbalbinotandrade.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +16,8 @@ import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JogadasPerguntas extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class JogadasPerguntas extends AppCompatActivity {
     private Button btnFinalizar;
     private ArrayList<TabelaPeriodica> elementosSelecionados;
     private ArrayList<String> tentativasUsuario = new ArrayList<>();
+    private HashMap<String, ArrayList<String>> historicoJogador;
 
     private int tentativasRestantes = 3; // Número inicial de corações
     private int pontuacao = 0; // Pontuação do usuário
@@ -39,6 +43,9 @@ public class JogadasPerguntas extends AppCompatActivity {
 
         // Recebe os dados enviados da tela anterior
         elementosSelecionados = (ArrayList<TabelaPeriodica>) getIntent().getSerializableExtra("elementos");
+
+        historicoJogador = new HashMap<>();
+
 
         if (elementosSelecionados == null || elementosSelecionados.isEmpty()) {
             Toast.makeText(this, "Nenhum item recebido!", Toast.LENGTH_SHORT).show();
@@ -93,6 +100,9 @@ public class JogadasPerguntas extends AppCompatActivity {
                 // Armazena a tentativa do usuário
                 tentativasUsuario.add(respostaSelecionada);
 
+                String nomeUsuario = getIntent().getStringExtra("nomeUsuario");
+                Log.d("ValidarResposta", "Nome do usuário: " + nomeUsuario);
+
                 if (respostaSelecionada.equals(respostaCorreta)) {
                     pontuacao += 10;
                     textViewPontuacao.setText("Pontuação: " + pontuacao);
@@ -105,6 +115,13 @@ public class JogadasPerguntas extends AppCompatActivity {
                         finalizarJogo(); // Encerra o jogo após 3 erros
                         return;
                     }
+                }
+
+                if (nomeUsuario != null) {
+                    // Atualiza o histórico de jogadas do jogador
+                    ArrayList<String> registros = historicoJogador.getOrDefault(nomeUsuario, new ArrayList<>());
+                    registros.add("Jogada: " + respostaSelecionada + ", Pontuação: " + pontuacao);
+                    historicoJogador.put(nomeUsuario, registros);
                 }
 
                 // Desabilitar todos os checkboxes após a resposta
@@ -157,11 +174,17 @@ public class JogadasPerguntas extends AppCompatActivity {
         // Exibe mensagem de jogo encerrado
         Toast.makeText(this, "Jogo encerrado! Confira seus resultados.", Toast.LENGTH_LONG).show();
 
+        // Exibir o conteúdo do HashMap no Logcat
+        for (Map.Entry<String, ArrayList<String>> entry : historicoJogador.entrySet()) {
+            Log.d("HistoricoJogador", "Nome: " + entry.getKey() + ", Registro: " + entry.getValue());
+        }
+
         // Redireciona para ResultadoActivity
         Intent intent = new Intent(JogadasPerguntas.this, ResultadoActivity.class);
         intent.putExtra("elementos", elementosSelecionados); // Passa os elementos
         intent.putExtra("tentativas", tentativasUsuario); // Passa as tentativas do usuário
         intent.putExtra("pontuacao", pontuacao); // Passa a pontuação
+        intent.putExtra("historico", historicoJogador.toString());
         startActivity(intent);
         finish(); // Fecha a tela atual
     }
