@@ -170,6 +170,7 @@ public class JogadasPerguntas extends AppCompatActivity {
         textViewCoracoes.setText(coracoes.toString());
     }
 
+
     private void finalizarJogo() {
         // Exibe mensagem de jogo encerrado
         Toast.makeText(this, "Jogo encerrado! Confira seus resultados.", Toast.LENGTH_LONG).show();
@@ -184,8 +185,10 @@ public class JogadasPerguntas extends AppCompatActivity {
         intent.putExtra("elementos", elementosSelecionados); // Passa os elementos
         intent.putExtra("tentativas", tentativasUsuario); // Passa as tentativas do usuário
         intent.putExtra("pontuacao", pontuacao); // Passa a pontuação
-        intent.putExtra("historico", historicoJogador.toString());
+        intent.putExtra("historico", historicoJogador);
         startActivity(intent);
         finish(); // Fecha a tela atual
     }
+
+
 }

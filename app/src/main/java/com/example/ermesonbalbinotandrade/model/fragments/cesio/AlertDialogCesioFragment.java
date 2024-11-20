@@ -31,7 +31,7 @@ public class AlertDialogCesioFragment extends DialogFragment {
         TextView textViewMassaAtomicaCesio = view.findViewById(R.id.textViewMassaAtomicaCesio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Cesio", "Cs","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Cesio", "Cs","132,91 u");
 
 
         textViewNomeCesio.setText(tabelaPeriodica.getNome());

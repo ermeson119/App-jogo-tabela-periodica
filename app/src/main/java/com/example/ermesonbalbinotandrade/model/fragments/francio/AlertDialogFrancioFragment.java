@@ -30,7 +30,7 @@ public class AlertDialogFrancioFragment extends DialogFragment {
         TextView textViewMassaAtomicaFrancio = view.findViewById(R.id.textViewMassaAtomicaFrancio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Francio", "Fr","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Francio", "Fr","223 u");
 
 
         textViewNomeFrancio.setText(tabelaPeriodica.getNome());

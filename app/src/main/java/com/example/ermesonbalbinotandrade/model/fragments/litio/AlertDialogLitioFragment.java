@@ -30,7 +30,7 @@ public class AlertDialogLitioFragment extends DialogFragment {
         TextView textViewMassaAtomicaLitio = view.findViewById(R.id.textViewMassaAtomicaLitio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Litio", "Li","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Litio", "Li","6,94 u");
 
 
         textViewNomeLitio.setText(tabelaPeriodica.getNome());

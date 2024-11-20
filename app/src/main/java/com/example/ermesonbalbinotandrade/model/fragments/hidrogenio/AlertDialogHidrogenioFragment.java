@@ -30,7 +30,7 @@ public class AlertDialogHidrogenioFragment extends DialogFragment {
         TextView textViewMassaAtomicaHidrogenio = view.findViewById(R.id.textViewMassaAtomicaHidrogenio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Hidrogenio", "H","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Hidrogenio", "H","1,008 u");
 
 
         textViewNomeHidrogenio.setText(tabelaPeriodica.getNome());

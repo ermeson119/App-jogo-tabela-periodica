@@ -1,18 +1,27 @@
 package com.example.ermesonbalbinotandrade.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
+import com.example.ermesonbalbinotandrade.model.fragments.menu.HistoricoDialogFragment;
+import com.example.ermesonbalbinotandrade.model.fragments.menu.JogarNovamenteDialogFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ResultadoActivity extends AppCompatActivity {
     private TableLayout tableLayoutGabarito;
@@ -22,6 +31,13 @@ public class ResultadoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
+        // Inicializa a Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Resultado");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Inicializa as views
         tableLayoutGabarito = findViewById(R.id.tableLayoutGabarito);
 
         // Receber os dados da tela anterior
@@ -33,6 +49,71 @@ public class ResultadoActivity extends AppCompatActivity {
             gerarGabarito(elementos, tentativas);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String itemName = item.getTitle().toString();
+
+        switch (itemName) {
+            case "Jogar Novamente":
+                new JogarNovamenteDialogFragment().show(getSupportFragmentManager(), "jogarNovamente");
+                return true;
+
+            case "Mostrar Histórico":
+                mostrarHistorico(); // Chamando o método mostrarHistorico
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void mostrarHistorico() {
+        HashMap<String, ArrayList<String>> historicoJogador = obterHistoricoJogador();
+
+        if (historicoJogador == null || historicoJogador.isEmpty()) {
+            // Mostra uma mensagem se o histórico estiver vazio
+            Toast.makeText(this, "Nenhum histórico disponível.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ArrayList<String> historico = new ArrayList<>();
+
+        for (Map.Entry<String, ArrayList<String>> entrada : historicoJogador.entrySet()) {
+            String jogada = entrada.getKey(); // Nome da jogada, ex: "Jogada 1"
+            ArrayList<String> detalhes = entrada.getValue(); // Detalhes, ex: ["Acertos: 3", "Erros: 1"]
+
+            // Formata os detalhes de forma legível
+            StringBuilder detalhesFormatados = new StringBuilder();
+            for (String detalhe : detalhes) {
+                detalhesFormatados.append(detalhe).append("\n");
+            }
+
+            historico.add(jogada + "\n" + detalhesFormatados.toString().trim()); // Remove espaços extras
+        }
+
+        // Passa o histórico formatado para o DialogFragment
+        HistoricoDialogFragment dialogFragment = HistoricoDialogFragment.newInstance(historico);
+        dialogFragment.show(getSupportFragmentManager(), "mostrarHistorico");
+    }
+
+
+
+    private HashMap<String, ArrayList<String>> obterHistoricoJogador() {
+        Intent intent = getIntent();
+        if (intent.hasExtra("historico")) {
+            return (HashMap<String, ArrayList<String>>) intent.getSerializableExtra("historico");
+        }
+        return new HashMap<>(); // Retorna um HashMap vazio para evitar NullPointerException
+    }
+
+
 
     private void gerarGabarito(ArrayList<TabelaPeriodica> elementos, ArrayList<String> tentativas) {
         for (int i = 0; i < elementos.size(); i++) {
@@ -81,7 +162,6 @@ public class ResultadoActivity extends AppCompatActivity {
         }
     }
 
-
     private String[] carregarPerguntas(String nomeElemento) {
         switch (nomeElemento.toLowerCase()) { // Padroniza para minúsculas
             case "hidrogenio":
@@ -102,6 +182,7 @@ public class ResultadoActivity extends AppCompatActivity {
                 return new String[] {}; // Retorna vazio se não encontrar o nome
         }
     }
+
 
 
 }

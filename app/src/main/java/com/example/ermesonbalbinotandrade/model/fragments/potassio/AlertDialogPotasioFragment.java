@@ -30,7 +30,7 @@ public class AlertDialogPotasioFragment extends DialogFragment {
         TextView textViewMassaAtomicaPotassio = view.findViewById(R.id.textViewMassaAtomicaPotassio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Potassio", "K","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Potassio", "K","39,10 u");
 
 
         textViewNomePotassio.setText(tabelaPeriodica.getNome());

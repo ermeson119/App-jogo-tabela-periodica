@@ -19,4 +19,6 @@
     <string name="op_o_3">Opção 3</string>
     <string name="op_o_4">Opção 4</string>
     <string name="siglaa">Sigla</string>
+    <string name="jogar_novamente">Jogar Novamente</string>
+    <string name="mostrar_hist_rico">Mostrar Histórico</string>
 </resources>

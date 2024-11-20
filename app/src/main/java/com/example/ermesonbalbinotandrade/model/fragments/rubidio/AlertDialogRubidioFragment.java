@@ -30,7 +30,7 @@ public class AlertDialogRubidioFragment extends DialogFragment {
         TextView textViewMassaAtomicaRubidio = view.findViewById(R.id.textViewMassaAtomicaRubidio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Rubidio", "Rb","132");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Rubidio", "Rb","85,47 u");
 
 
         textViewNomeRubidio.setText(tabelaPeriodica.getNome());
