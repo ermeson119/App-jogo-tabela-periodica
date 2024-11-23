@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,13 +70,15 @@ public class JogadasPerguntas extends AppCompatActivity {
             View perguntaView = getLayoutInflater().inflate(R.layout.item_pergunta, null);
 
             TextView textViewElemento = perguntaView.findViewById(R.id.textViewElemento);
+            ImageView imageViewElemento = perguntaView.findViewById(R.id.imageViewElemento);
             CheckBox checkBox1 = perguntaView.findViewById(R.id.checkBox1);
             CheckBox checkBox2 = perguntaView.findViewById(R.id.checkBox2);
             CheckBox checkBox3 = perguntaView.findViewById(R.id.checkBox3);
             CheckBox checkBox4 = perguntaView.findViewById(R.id.checkBox4);
 
             // Define o nome do elemento como título da pergunta
-            textViewElemento.setText("Qual é o número atômico do elemento: " + elemento.getSigla());
+            imageViewElemento.setImageResource(elemento.getImagemEle());
+            textViewElemento.setText("Qual é o número atômico do elemento: " + elemento.getNome());
 
             // Carrega as perguntas do XML
             String[] opcoes = carregarPerguntas(elemento.getNome());
@@ -101,16 +104,13 @@ public class JogadasPerguntas extends AppCompatActivity {
                 tentativasUsuario.add(respostaSelecionada);
 
                 String nomeUsuario = getIntent().getStringExtra("nomeUsuario");
-                Log.d("ValidarResposta", "Nome do usuário: " + nomeUsuario);
 
                 if (respostaSelecionada.equals(respostaCorreta)) {
                     pontuacao += 10;
                     textViewPontuacao.setText("Pontuação: " + pontuacao);
-                    Toast.makeText(this, "Correto!", Toast.LENGTH_SHORT).show();
                 } else {
                     tentativasRestantes--;
                     atualizarCoracoes();
-                    Toast.makeText(this, "Errado! O correto é: " + respostaCorreta, Toast.LENGTH_SHORT).show();
                     if (tentativasRestantes == 0) {
                         finalizarJogo(); // Encerra o jogo após 3 erros
                         return;
@@ -142,7 +142,7 @@ public class JogadasPerguntas extends AppCompatActivity {
     }
 
     private String[] carregarPerguntas(String nomeElemento) {
-        switch (nomeElemento.toLowerCase()) { // Padroniza para minúsculas
+        switch (nomeElemento.toLowerCase()) {
             case "hidrogenio":
                 return getResources().getStringArray(R.array.perguntas_HIDROGENIO);
             case "litio":
@@ -158,7 +158,7 @@ public class JogadasPerguntas extends AppCompatActivity {
             case "francio":
                 return getResources().getStringArray(R.array.perguntas_FRANCIO);
             default:
-                return new String[] {}; // Retorna vazio se não encontrar o nome
+                return new String[] {};
         }
     }
 
@@ -174,11 +174,6 @@ public class JogadasPerguntas extends AppCompatActivity {
     private void finalizarJogo() {
         // Exibe mensagem de jogo encerrado
         Toast.makeText(this, "Jogo encerrado! Confira seus resultados.", Toast.LENGTH_LONG).show();
-
-        // Exibir o conteúdo do HashMap no Logcat
-        for (Map.Entry<String, ArrayList<String>> entry : historicoJogador.entrySet()) {
-            Log.d("HistoricoJogador", "Nome: " + entry.getKey() + ", Registro: " + entry.getValue());
-        }
 
         // Redireciona para ResultadoActivity
         Intent intent = new Intent(JogadasPerguntas.this, ResultadoActivity.class);

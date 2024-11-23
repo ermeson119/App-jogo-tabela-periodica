@@ -7,6 +7,14 @@
     android:background="@color/branco_azul"
     android:id="@+id/perguntasLayout">
 
+
+    <ImageView
+        android:id="@+id/imageViewElemento"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginBottom="16dp" />
+
     <TextView
         android:id="@+id/textViewElemento"
         android:layout_width="match_parent"

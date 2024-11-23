@@ -29,6 +29,7 @@
         android:text="@string/nome_do_elemento"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_marginTop="8dp" />
 
     <TextView
@@ -36,7 +37,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewNomePotassio"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
+        android:textColor="@color/azul"
+        android:gravity="center"
         android:paddingStart="8dp" />
 
     <TextView
@@ -45,6 +47,7 @@
         android:text="@string/sigla"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_marginTop="8dp" />
 
     <TextView
@@ -52,7 +55,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewSiglaPotassio"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
+        android:textColor="@color/azul"
+        android:gravity="center"
         android:paddingStart="8dp" />
 
     <TextView
@@ -61,6 +65,7 @@
         android:text="@string/massa_atomica"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_marginTop="8dp" />
 
     <TextView
@@ -68,7 +73,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewMassaAtomicaPotassio"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
+        android:textColor="@color/azul"
+        android:gravity="center"
         android:paddingStart="8dp" />
 
 
@@ -81,6 +87,7 @@
         android:backgroundTint="@color/green"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_marginTop="24dp"
+        android:textStyle="bold"
         android:padding="8dp" />
 
 

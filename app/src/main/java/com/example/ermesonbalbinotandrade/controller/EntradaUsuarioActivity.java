@@ -48,6 +48,13 @@ public class EntradaUsuarioActivity extends AppCompatActivity  {
         btnGerarSelecao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nomeUsuario = editTextNomeUsuario.getText().toString().trim();
+                String valorTexto = editTextValor.getText().toString().trim();
+
+                if (nomeUsuario.isEmpty() || valorTexto.isEmpty()) {
+                    Toast.makeText(EntradaUsuarioActivity.this, "Preencha todos os campos corretamente.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 gerarSelecao();
             }
         });
@@ -71,7 +78,7 @@ public class EntradaUsuarioActivity extends AppCompatActivity  {
         String valorTexto = editTextValor.getText().toString().trim();
         int valor = Integer.parseInt(valorTexto);
 
-        if (nomeUsuario.isEmpty() && valorTexto.isEmpty()) {
+        if (nomeUsuario.isEmpty() || valorTexto.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos corretamente.", Toast.LENGTH_SHORT).show();
             return;
         }

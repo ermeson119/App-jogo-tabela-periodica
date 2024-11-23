@@ -58,9 +58,9 @@ public class ResultadoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        String itemName = item.getTitle().toString();
+        String itemNome = item.getTitle().toString();
 
-        switch (itemName) {
+        switch (itemNome) {
             case "Jogar Novamente":
                 new JogarNovamenteDialogFragment().show(getSupportFragmentManager(), "jogarNovamente");
                 return true;
