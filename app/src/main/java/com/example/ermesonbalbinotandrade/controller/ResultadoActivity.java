@@ -16,8 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
-import com.example.ermesonbalbinotandrade.model.fragments.menu.HistoricoDialogFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.menu.JogarNovamenteDialogFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.menu.HistoricoDialogFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.menu.JogarNovamenteDialogFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

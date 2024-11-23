@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.fragments.hidrogenio;
+package com.example.ermesonbalbinotandrade.view.fragments.hidrogenio;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

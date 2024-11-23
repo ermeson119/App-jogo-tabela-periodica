@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.fragments.menu;
+package com.example.ermesonbalbinotandrade.view.fragments.menu;
 
 import android.app.Dialog;
 import android.os.Bundle;

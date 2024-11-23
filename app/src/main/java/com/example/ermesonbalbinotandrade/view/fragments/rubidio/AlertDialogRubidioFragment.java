@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.fragments.francio;
+package com.example.ermesonbalbinotandrade.view.fragments.rubidio;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,7 +16,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
 
-public class AlertDialogFrancioFragment extends DialogFragment {
+public class AlertDialogRubidioFragment extends DialogFragment {
 
     @NonNull
     @Override
@@ -24,18 +24,18 @@ public class AlertDialogFrancioFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_francio, null);
-        TextView textViewNomeFrancio = view.findViewById(R.id.textViewNomeFrancio);
-        TextView textViewSiglaFrancio = view.findViewById(R.id.textViewSiglaFrancio);
-        TextView textViewMassaAtomicaFrancio = view.findViewById(R.id.textViewMassaAtomicaFrancio);
+        View view = inflater.inflate(R.layout.dialog_rubidio, null);
+        TextView textViewNomeRubidio = view.findViewById(R.id.textViewNomeRubidio);
+        TextView textViewSiglaRubidio = view.findViewById(R.id.textViewSiglaRubidio);
+        TextView textViewMassaAtomicaRubidio = view.findViewById(R.id.textViewMassaAtomicaRubidio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Francio", "Fr","223 u");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Rubidio", "Rb","85,47 u");
 
 
-        textViewNomeFrancio.setText(tabelaPeriodica.getNome());
-        textViewSiglaFrancio.setText(tabelaPeriodica.getSigla());
-        textViewMassaAtomicaFrancio.setText(tabelaPeriodica.getMassaAtomica());
+        textViewNomeRubidio.setText(tabelaPeriodica.getNome());
+        textViewSiglaRubidio.setText(tabelaPeriodica.getSigla());
+        textViewMassaAtomicaRubidio.setText(tabelaPeriodica.getMassaAtomica());
 
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override

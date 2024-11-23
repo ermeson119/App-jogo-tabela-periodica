@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ermesonbalbinotandrade.R;
-import com.example.ermesonbalbinotandrade.model.adpter.TabelaAdapeter;
+import com.example.ermesonbalbinotandrade.view.adpter.TabelaAdapeter;
 import com.example.ermesonbalbinotandrade.model.entity.Dados;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
 

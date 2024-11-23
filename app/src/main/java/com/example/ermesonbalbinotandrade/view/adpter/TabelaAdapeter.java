@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.adpter;
+package com.example.ermesonbalbinotandrade.view.adpter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

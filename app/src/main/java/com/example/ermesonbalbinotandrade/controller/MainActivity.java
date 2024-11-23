@@ -11,16 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.ermesonbalbinotandrade.R;
-import com.example.ermesonbalbinotandrade.model.adpter.TabelaAdapeter;
+import com.example.ermesonbalbinotandrade.view.adpter.TabelaAdapeter;
 import com.example.ermesonbalbinotandrade.model.entity.Dados;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
-import com.example.ermesonbalbinotandrade.model.fragments.cesio.AlertDialogCesioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.francio.AlertDialogFrancioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.hidrogenio.AlertDialogHidrogenioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.litio.AlertDialogLitioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.potassio.AlertDialogPotasioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.rubidio.AlertDialogRubidioFragment;
-import com.example.ermesonbalbinotandrade.model.fragments.sodio.AlertDialogSodioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.cesio.AlertDialogCesioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.francio.AlertDialogFrancioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.hidrogenio.AlertDialogHidrogenioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.litio.AlertDialogLitioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.potassio.AlertDialogPotasioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.rubidio.AlertDialogRubidioFragment;
+import com.example.ermesonbalbinotandrade.view.fragments.sodio.AlertDialogSodioFragment;
 
 import java.util.ArrayList;
 

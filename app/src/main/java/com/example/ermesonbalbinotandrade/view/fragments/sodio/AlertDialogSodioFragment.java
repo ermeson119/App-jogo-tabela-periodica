@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.fragments.potassio;
+package com.example.ermesonbalbinotandrade.view.fragments.sodio;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,7 +16,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
 
-public class AlertDialogPotasioFragment extends DialogFragment {
+public class AlertDialogSodioFragment extends DialogFragment {
 
     @NonNull
     @Override
@@ -24,18 +24,18 @@ public class AlertDialogPotasioFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_potassio, null);
-        TextView textViewNomePotassio = view.findViewById(R.id.textViewNomePotassio);
-        TextView textViewSiglaPotassio = view.findViewById(R.id.textViewSiglaPotassio);
-        TextView textViewMassaAtomicaPotassio = view.findViewById(R.id.textViewMassaAtomicaPotassio);
+        View view = inflater.inflate(R.layout.dialog_sodio, null);
+        TextView textViewNomeSodio = view.findViewById(R.id.textViewNomeSodio);
+        TextView textViewSiglaSodio = view.findViewById(R.id.textViewSiglaSodio);
+        TextView textViewMassaAtomicaSodio = view.findViewById(R.id.textViewMassaAtomicaSodio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Potassio", "K","39,10 u");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Sodio", "Na","132");
 
 
-        textViewNomePotassio.setText(tabelaPeriodica.getNome());
-        textViewSiglaPotassio.setText(tabelaPeriodica.getSigla());
-        textViewMassaAtomicaPotassio.setText(tabelaPeriodica.getMassaAtomica());
+        textViewNomeSodio.setText(tabelaPeriodica.getNome());
+        textViewSiglaSodio.setText(tabelaPeriodica.getSigla());
+        textViewMassaAtomicaSodio.setText(tabelaPeriodica.getMassaAtomica());
 
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override

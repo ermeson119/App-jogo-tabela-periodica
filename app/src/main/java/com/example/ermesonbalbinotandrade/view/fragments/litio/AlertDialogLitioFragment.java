@@ -1,4 +1,4 @@
-package com.example.ermesonbalbinotandrade.model.fragments.cesio;
+package com.example.ermesonbalbinotandrade.view.fragments.litio;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,11 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-
 import com.example.ermesonbalbinotandrade.R;
 import com.example.ermesonbalbinotandrade.model.entity.TabelaPeriodica;
 
-public class AlertDialogCesioFragment extends DialogFragment {
+public class AlertDialogLitioFragment extends DialogFragment {
 
     @NonNull
     @Override
@@ -25,18 +24,18 @@ public class AlertDialogCesioFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_cesio, null);
-        TextView textViewNomeCesio = view.findViewById(R.id.textViewNomeCesio);
-        TextView textViewSiglaCesio = view.findViewById(R.id.textViewSiglaCesio);
-        TextView textViewMassaAtomicaCesio = view.findViewById(R.id.textViewMassaAtomicaCesio);
+        View view = inflater.inflate(R.layout.dialog_litio, null);
+        TextView textViewNomeLitio = view.findViewById(R.id.textViewNomeLitio);
+        TextView textViewSiglaLitio = view.findViewById(R.id.textViewSiglaLitio);
+        TextView textViewMassaAtomicaLitio = view.findViewById(R.id.textViewMassaAtomicaLitio);
 
         Button buttonFechar = view.findViewById(R.id.buttonFechar);
-        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Cesio", "Cs","132,91 u");
+        TabelaPeriodica tabelaPeriodica = new TabelaPeriodica("Litio", "Li","6,94 u");
 
 
-        textViewNomeCesio.setText(tabelaPeriodica.getNome());
-        textViewSiglaCesio.setText(tabelaPeriodica.getSigla());
-        textViewMassaAtomicaCesio.setText(tabelaPeriodica.getMassaAtomica());
+        textViewNomeLitio.setText(tabelaPeriodica.getNome());
+        textViewSiglaLitio.setText(tabelaPeriodica.getSigla());
+        textViewMassaAtomicaLitio.setText(tabelaPeriodica.getMassaAtomica());
 
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override
