@@ -13,6 +13,7 @@
         android:divider="@color/black"
         android:textStyle="bold"
         android:dividerHeight="1dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:backgroundTint="@color/azul_claro"/>
 
     <Button
@@ -22,5 +23,6 @@
         android:text="@string/fechar"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:backgroundTint="@color/green"/>
 </LinearLayout>

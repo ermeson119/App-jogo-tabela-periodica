@@ -20,15 +20,14 @@ public class JogarNovamenteDialogFragment extends DialogFragment {
         builder.setTitle("Jogar Novamente")
                 .setMessage("Você deseja Jogar novamente?")
                 .setPositiveButton("Sim", (dialog, which) -> {
-                    // Reinicia o jogo
+
                     Intent intent = new Intent(getActivity(), EntradaUsuarioActivity.class);
                     startActivity(intent);
                     if (getActivity() != null) {
-                        getActivity().finish(); // Fecha a atividade atual
+                        getActivity().finish();
                     }
                 })
                 .setNegativeButton("Não", (dialog, which) -> {
-                    // Apenas fecha o diálogo
                     dialog.dismiss();
                 });
 

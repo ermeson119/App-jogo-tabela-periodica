@@ -29,8 +29,8 @@ public class JogadasPerguntas extends AppCompatActivity {
     private ArrayList<String> tentativasUsuario = new ArrayList<>();
     private HashMap<String, ArrayList<String>> historicoJogador;
 
-    private int tentativasRestantes = 3; // Número inicial de corações
-    private int pontuacao = 0; // Pontuação do usuário
+    private int tentativasRestantes = 3;
+    private int pontuacao = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class JogadasPerguntas extends AppCompatActivity {
         textViewPontuacao = findViewById(R.id.textViewPontuacao);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        // Recebe os dados enviados da tela anterior
         elementosSelecionados = (ArrayList<TabelaPeriodica>) getIntent().getSerializableExtra("elementos");
 
         historicoJogador = new HashMap<>();
@@ -53,20 +52,18 @@ public class JogadasPerguntas extends AppCompatActivity {
             return;
         }
 
-        // Configura os corações e pontuação iniciais
+
         atualizarCoracoes();
         textViewPontuacao.setText("Pontuação: " + pontuacao);
 
-        // Gera perguntas para cada elemento
         gerarPerguntas();
 
-        // Botão para finalizar e ir para ResultadoActivity
         btnFinalizar.setOnClickListener(v -> finalizarJogo());
     }
 
     private void gerarPerguntas() {
         for (TabelaPeriodica elemento : elementosSelecionados) {
-            // Cria um layout para cada pergunta
+
             View perguntaView = getLayoutInflater().inflate(R.layout.item_pergunta, null);
 
             TextView textViewElemento = perguntaView.findViewById(R.id.textViewElemento);
@@ -76,11 +73,9 @@ public class JogadasPerguntas extends AppCompatActivity {
             CheckBox checkBox3 = perguntaView.findViewById(R.id.checkBox3);
             CheckBox checkBox4 = perguntaView.findViewById(R.id.checkBox4);
 
-            // Define o nome do elemento como título da pergunta
             imageViewElemento.setImageResource(elemento.getImagemEle());
             textViewElemento.setText("Qual é o número atômico do elemento: " + elemento.getNome());
 
-            // Carrega as perguntas do XML
             String[] opcoes = carregarPerguntas(elemento.getNome());
 
             if (opcoes.length != 4) {
@@ -88,19 +83,16 @@ public class JogadasPerguntas extends AppCompatActivity {
                 return;
             }
 
-            // Define as opções nos checkboxes
-            checkBox1.setText(opcoes[0]); // Resposta correta
+            checkBox1.setText(opcoes[0]);
             checkBox2.setText(opcoes[1]);
             checkBox3.setText(opcoes[2]);
             checkBox4.setText(opcoes[3]);
 
-            // Listener para validar resposta
             View.OnClickListener validarResposta = v -> {
                 CheckBox selecionado = (CheckBox) v;
                 String respostaSelecionada = selecionado.getText().toString();
-                String respostaCorreta = opcoes[0]; // Sempre a primeira opção é correta
+                String respostaCorreta = opcoes[0];
 
-                // Armazena a tentativa do usuário
                 tentativasUsuario.add(respostaSelecionada);
 
                 String nomeUsuario = getIntent().getStringExtra("nomeUsuario");
@@ -112,19 +104,17 @@ public class JogadasPerguntas extends AppCompatActivity {
                     tentativasRestantes--;
                     atualizarCoracoes();
                     if (tentativasRestantes == 0) {
-                        finalizarJogo(); // Encerra o jogo após 3 erros
+                        finalizarJogo();
                         return;
                     }
                 }
 
                 if (nomeUsuario != null) {
-                    // Atualiza o histórico de jogadas do jogador
                     ArrayList<String> registros = historicoJogador.getOrDefault(nomeUsuario, new ArrayList<>());
                     registros.add("Jogada: " + respostaSelecionada + ", Pontuação: " + pontuacao);
                     historicoJogador.put(nomeUsuario, registros);
                 }
 
-                // Desabilitar todos os checkboxes após a resposta
                 checkBox1.setEnabled(false);
                 checkBox2.setEnabled(false);
                 checkBox3.setEnabled(false);
@@ -136,7 +126,6 @@ public class JogadasPerguntas extends AppCompatActivity {
             checkBox3.setOnClickListener(validarResposta);
             checkBox4.setOnClickListener(validarResposta);
 
-            // Adiciona a pergunta ao layout principal
             perguntasLayout.addView(perguntaView);
         }
     }
@@ -172,17 +161,15 @@ public class JogadasPerguntas extends AppCompatActivity {
 
 
     private void finalizarJogo() {
-        // Exibe mensagem de jogo encerrado
         Toast.makeText(this, "Jogo encerrado! Confira seus resultados.", Toast.LENGTH_LONG).show();
 
-        // Redireciona para ResultadoActivity
         Intent intent = new Intent(JogadasPerguntas.this, ResultadoActivity.class);
-        intent.putExtra("elementos", elementosSelecionados); // Passa os elementos
-        intent.putExtra("tentativas", tentativasUsuario); // Passa as tentativas do usuário
-        intent.putExtra("pontuacao", pontuacao); // Passa a pontuação
+        intent.putExtra("elementos", elementosSelecionados);
+        intent.putExtra("tentativas", tentativasUsuario);
+        intent.putExtra("pontuacao", pontuacao);
         intent.putExtra("historico", historicoJogador);
         startActivity(intent);
-        finish(); // Fecha a tela atual
+        finish();
     }
 
 

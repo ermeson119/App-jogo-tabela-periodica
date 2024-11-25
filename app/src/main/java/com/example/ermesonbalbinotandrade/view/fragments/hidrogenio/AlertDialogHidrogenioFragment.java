@@ -40,7 +40,6 @@ public class AlertDialogHidrogenioFragment extends DialogFragment {
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Dialogo fechado", Toast.LENGTH_SHORT).show();
                 dismiss();
             }
         });

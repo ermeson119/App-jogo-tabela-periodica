@@ -13,6 +13,7 @@
         android:layout_width="38dp"
         android:layout_height="40dp"
         android:layout_gravity="end"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_marginBottom="16dp" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_marginBottom="12dp"
         android:padding="8dp"
         android:background="@color/branco_azul"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         android:gravity="center" />
 
@@ -36,6 +38,7 @@
         android:padding="8dp"
         android:layout_marginBottom="8dp"
         android:buttonTint="@color/green"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"/>
 
     <CheckBox
@@ -46,6 +49,7 @@
         android:padding="8dp"
         android:layout_marginBottom="8dp"
         android:buttonTint="@color/green"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"/>
 
     <CheckBox
@@ -56,6 +60,7 @@
         android:padding="8dp"
         android:layout_marginBottom="8dp"
         android:buttonTint="@color/green"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"/>
 
     <CheckBox
@@ -66,6 +71,7 @@
         android:padding="8dp"
         android:layout_marginBottom="8dp"
         android:buttonTint="@color/green"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"/>
 
 </LinearLayout>

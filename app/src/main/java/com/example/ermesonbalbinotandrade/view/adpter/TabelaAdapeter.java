@@ -45,15 +45,13 @@ public class TabelaAdapeter extends BaseAdapter {
 
         TabelaPeriodica elemento = getItem(position);
 
-        // Configura a imagem
+
         ImageView imagemElemento = convertView.findViewById(R.id.elemento_imagem);
         imagemElemento.setImageResource(elemento.getImagemEle());
 
-        // Configura o nome do elemento
         TextView nomeElemento = convertView.findViewById(R.id.planeta_nome);
         nomeElemento.setText(elemento.getNome());
 
-        // Configura a sigla do elemento
         TextView siglaElemento = convertView.findViewById(R.id.elemento_sigla);
         siglaElemento.setText(elemento.getSigla());
 

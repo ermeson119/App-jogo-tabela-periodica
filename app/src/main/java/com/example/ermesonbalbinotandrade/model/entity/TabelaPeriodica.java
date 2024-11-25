@@ -10,10 +10,6 @@ public class TabelaPeriodica implements Serializable {
     private int numeroAtomico;
 
 
-    public TabelaPeriodica(String nome, int imagemEle) {
-        this.nome = nome;
-        this.imagemEle = imagemEle;
-    }
 
     public TabelaPeriodica(String nome, String sigla, String massaAtomica) {
         this.nome = nome;
@@ -27,12 +23,7 @@ public class TabelaPeriodica implements Serializable {
         this.sigla = sigla;
     }
 
-    public TabelaPeriodica(String nome, String sigla, String massaAtomica, int imagemEle) {
-        this.nome = nome;
-        this.sigla = sigla;
-        this.massaAtomica = massaAtomica;
-        this.imagemEle = imagemEle;
-    }
+
 
     public String getNome() {
         return nome;

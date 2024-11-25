@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         TabelaPeriodica tabelaPeriodica = (TabelaPeriodica) parent.getItemAtPosition(position);
         abrirTela(tabelaPeriodica.getNome());
     }
+
     private void abrirTela(String nomePeriodica) {
 
         DialogFragment dialogFragment = null;

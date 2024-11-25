@@ -31,20 +31,19 @@ public class ResultadoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
-        // Inicializa a Toolbar
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Resultado");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Inicializa as views
+
         tableLayoutGabarito = findViewById(R.id.tableLayoutGabarito);
 
-        // Receber os dados da tela anterior
         ArrayList<TabelaPeriodica> elementos = (ArrayList<TabelaPeriodica>) getIntent().getSerializableExtra("elementos");
         ArrayList<String> tentativas = getIntent().getStringArrayListExtra("tentativas");
 
-        // Gerar gabarito
+
         if (elementos != null && tentativas != null) {
             gerarGabarito(elementos, tentativas);
         }
@@ -66,7 +65,7 @@ public class ResultadoActivity extends AppCompatActivity {
                 return true;
 
             case "Mostrar Histórico":
-                mostrarHistorico(); // Chamando o método mostrarHistorico
+                mostrarHistorico();
                 return true;
 
             default:
@@ -78,7 +77,6 @@ public class ResultadoActivity extends AppCompatActivity {
         HashMap<String, ArrayList<String>> historicoJogador = obterHistoricoJogador();
 
         if (historicoJogador == null || historicoJogador.isEmpty()) {
-            // Mostra uma mensagem se o histórico estiver vazio
             Toast.makeText(this, "Nenhum histórico disponível.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -86,19 +84,19 @@ public class ResultadoActivity extends AppCompatActivity {
         ArrayList<String> historico = new ArrayList<>();
 
         for (Map.Entry<String, ArrayList<String>> entrada : historicoJogador.entrySet()) {
-            String jogada = entrada.getKey(); // Nome da jogada, ex: "Jogada 1"
-            ArrayList<String> detalhes = entrada.getValue(); // Detalhes, ex: ["Acertos: 3", "Erros: 1"]
+            String jogada = entrada.getKey();
+            ArrayList<String> detalhes = entrada.getValue();
 
-            // Formata os detalhes de forma legível
             StringBuilder detalhesFormatados = new StringBuilder();
             for (String detalhe : detalhes) {
                 detalhesFormatados.append(detalhe).append("\n");
             }
 
-            historico.add(jogada + "\n" + detalhesFormatados.toString().trim()); // Remove espaços extras
+            // Adiciona a jogada e os detalhes formatados à lista de histórico
+            historico.add(jogada + "\n" + detalhesFormatados.toString().trim());
         }
 
-        // Passa o histórico formatado para o DialogFragment
+
         HistoricoDialogFragment dialogFragment = HistoricoDialogFragment.newInstance(historico);
         dialogFragment.show(getSupportFragmentManager(), "mostrarHistorico");
     }
@@ -108,48 +106,41 @@ public class ResultadoActivity extends AppCompatActivity {
     private HashMap<String, ArrayList<String>> obterHistoricoJogador() {
         Intent intent = getIntent();
         if (intent.hasExtra("historico")) {
+            // Retorna o histórico obtido como um HashMap
             return (HashMap<String, ArrayList<String>>) intent.getSerializableExtra("historico");
         }
-        return new HashMap<>(); // Retorna um HashMap vazio para evitar NullPointerException
+        return new HashMap<>();
     }
 
 
 
     private void gerarGabarito(ArrayList<TabelaPeriodica> elementos, ArrayList<String> tentativas) {
         for (int i = 0; i < elementos.size(); i++) {
-            TabelaPeriodica elemento = elementos.get(i);
+            TabelaPeriodica elemento = elementos.get(i); // Obtém o elemento atual
 
-            // Carregar as perguntas do elemento
+
             String[] opcoes = carregarPerguntas(elemento.getNome());
 
-            // A resposta correta é sempre a primeira posição do array
             String respostaCorreta = opcoes[0].trim();
 
-            // Verifique se existe uma tentativa correspondente
             String tentativaUsuario = (i < tentativas.size()) ? tentativas.get(i).trim() : "Não respondido";
 
-            // Criar uma nova linha na tabela
             TableRow row = new TableRow(this);
 
-            // Adicionar o nome do elemento
             TextView nomeElemento = new TextView(this);
             nomeElemento.setText(elemento.getNome());
             row.addView(nomeElemento);
 
-            // Adicionar o número atômico correto
             TextView numeroAtomico = new TextView(this);
             numeroAtomico.setText(respostaCorreta);
             row.addView(numeroAtomico);
 
-            // Adicionar a tentativa do usuário
             TextView tentativa = new TextView(this);
             tentativa.setText(tentativaUsuario);
             row.addView(tentativa);
 
-            // Adicionar a imagem de acerto ou erro
-            ImageView resultado = new ImageView(this);
 
-            // Comparar resposta correta com a tentativa do usuário
+            ImageView resultado = new ImageView(this);
             if (tentativaUsuario.equals(respostaCorreta)) {
                 resultado.setImageResource(R.drawable.ic_acerto);
             } else {
@@ -157,13 +148,12 @@ public class ResultadoActivity extends AppCompatActivity {
             }
             row.addView(resultado);
 
-            // Adicionar a linha na tabela
             tableLayoutGabarito.addView(row);
         }
     }
 
     private String[] carregarPerguntas(String nomeElemento) {
-        switch (nomeElemento.toLowerCase()) { // Padroniza para minúsculas
+        switch (nomeElemento.toLowerCase()) {
             case "hidrogenio":
                 return getResources().getStringArray(R.array.perguntas_HIDROGENIO);
             case "litio":
@@ -179,10 +169,9 @@ public class ResultadoActivity extends AppCompatActivity {
             case "francio":
                 return getResources().getStringArray(R.array.perguntas_FRANCIO);
             default:
-                return new String[] {}; // Retorna vazio se não encontrar o nome
+                return new String[] {};
         }
     }
-
 
 
 }

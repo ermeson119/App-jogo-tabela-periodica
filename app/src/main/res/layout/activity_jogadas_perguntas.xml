@@ -20,6 +20,7 @@
             android:text="@string/pontua_o_0"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -29,6 +30,7 @@
             android:text="@string/coracao"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/red" />
     </LinearLayout>
 

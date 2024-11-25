@@ -67,7 +67,7 @@ public class EntradaUsuarioActivity extends AppCompatActivity  {
 
             Intent intent = new Intent(EntradaUsuarioActivity.this, JogadasPerguntas.class);
             intent.putExtra("nomeUsuario", editTextNomeUsuario.getText().toString().trim());
-            intent.putExtra("elementos", listaSelecionada); // Passa a lista selecionada para a próxima tela
+            intent.putExtra("elementos", listaSelecionada);
             startActivity(intent);
         });
 
@@ -88,7 +88,6 @@ public class EntradaUsuarioActivity extends AppCompatActivity  {
             return;
         }
 
-        // Seleção aleatória sem repetição
         listaSelecionada = new ArrayList<>();
         ArrayList<TabelaPeriodica> copiaLista = new ArrayList<>(listaElementoCompleta);
         for (int i = 0; i < valor; i++) {

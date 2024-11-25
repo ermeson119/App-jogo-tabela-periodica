@@ -15,6 +15,7 @@
         android:textSize="22sp"
         android:gravity="center"
         android:layout_marginBottom="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
         android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/black" />
 
     <EditText
@@ -34,6 +36,7 @@
         android:hint="@string/digite_seu_nome"
         android:inputType="textPersonName"
         android:layout_marginBottom="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:padding="10dp" />
 
     <TextView
@@ -44,6 +47,7 @@
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
         android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/black" />
 
     <EditText
@@ -53,6 +57,7 @@
         android:hint="@string/digite_um_n_mero_entre_1_e_7"
         android:inputType="number"
         android:layout_marginBottom="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:padding="10dp" />
 
     <Button
@@ -64,6 +69,7 @@
         android:backgroundTint="@color/green"
         android:textColor="@color/black"
         android:paddingVertical="12dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="16sp" />
 
     <TextView
@@ -74,6 +80,7 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/black" />
 
     <ListView
@@ -84,6 +91,7 @@
         android:divider="@android:color/black"
         android:dividerHeight="1dp"
         android:background="@color/azul_claro"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:padding="8dp" />
 
     <Button
